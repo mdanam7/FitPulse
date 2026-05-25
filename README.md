@@ -1,6 +1,6 @@
 # FitPulse
 Your all-in-one fitness buddy — track calories, follow workouts, stay motivated, and build healthier habits with a sleek modern UI.<br>
-<b>Features<br>
+<h3>Features<br>
 🔥 Calorie tracking system<br>
 💪 Live workout sessions with timers<br>
 🥗 Diet planning<br>
