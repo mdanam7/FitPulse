@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FitPulse — Your Fitness Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="bg-mesh"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<!-- LOGIN PAGE -->
+<div class="page active" id="loginPage">
+  <div class="auth-container">
+    <div class="auth-left">
+      <div class="hero-brand">
+        <div class="hero-logo"><span>🔥</span></div>
+        <div class="hero-name">FitPulse</div>
+      </div>
+      <h1 class="hero-headline">Train Smarter.<br/><span class="grad-text">Live Better.</span></h1>
+      <p class="hero-sub">Track calories, follow science-backed workouts, and get personalized nutrition guidance — all in one place.</p>
+      <div class="hero-stats-row">
+        <div class="hero-stat"><div class="hero-stat-num">500+</div><div class="hero-stat-lbl">Exercises</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">12</div><div class="hero-stat-lbl">Diet Plans</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">AI</div><div class="hero-stat-lbl">Nutritionist</div></div>
+      </div>
+      <div class="hero-badges">
+        <span class="hero-badge"><i class="ti ti-shield-check"></i> Science-Backed</span>
+        <span class="hero-badge"><i class="ti ti-lock"></i> Private & Secure</span>
+        <span class="hero-badge"><i class="ti ti-device-mobile"></i> Works Everywhere</span>
+      </div>
+    </div>
+    <div class="auth-right">
+      <div class="card">
+        <div class="brand"><div class="brand-icon">🔥</div><div class="brand-name">Fit<span>Pulse</span></div></div>
+        <p class="form-title">Welcome back 👋</p>
+        <p class="form-sub">Sign in to track your daily nutrition</p>
+        <div class="field"><label for="loginEmail">Email address</label><div class="field-wrap"><i class="ti ti-mail"></i><input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email"/></div><div class="error-msg" id="emailErr">Please enter a valid email.</div></div>
+        <div class="field"><label for="loginPass">Password</label><div class="field-wrap"><i class="ti ti-lock"></i><input type="password" id="loginPass" placeholder="Enter your password" autocomplete="current-password"/><button class="toggle-pass" onclick="togglePass('loginPass',this)"><i class="ti ti-eye"></i></button></div><div class="error-msg" id="passErr">Password must be at least 6 characters.</div></div>
+        <button class="btn-primary" onclick="doLogin()"><i class="ti ti-login"></i> Sign In</button>
+        <div class="divider">or</div>
+        <button class="btn-demo" onclick="doDemo()"><i class="ti ti-bolt"></i> Try Demo (No Account Needed)</button>
+        <div class="link-row">Don't have an account? <a href="#" onclick="showPage('signupPage');return false;">Create one free</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SIGNUP PAGE -->
+<div class="page hidden" id="signupPage">
+  <div class="auth-container">
+    <div class="auth-left">
+      <div class="hero-brand">
+        <div class="hero-logo"><span>🔥</span></div>
+        <div class="hero-name">FitPulse</div>
+      </div>
+      <h1 class="hero-headline">Start Your<br/><span class="grad-text">Fitness Journey</span></h1>
+      <p class="hero-sub">Join thousands tracking their health with science-backed tools and AI-powered recommendations.</p>
+      <div class="feature-list">
+        <div class="feature-item"><div class="feature-icon"><i class="ti ti-apple"></i></div><div><div class="feature-name">Smart Calorie Tracking</div><div class="feature-desc">Log meals and see your real-time progress</div></div></div>
+        <div class="feature-item"><div class="feature-icon" style="background:rgba(55,138,221,0.15);border-color:rgba(55,138,221,0.3);color:var(--blue)"><i class="ti ti-barbell"></i></div><div><div class="feature-name">Live Workout Sessions</div><div class="feature-desc">Timer-guided routines with audio cues</div></div></div>
+        <div class="feature-item"><div class="feature-icon" style="background:rgba(239,159,39,0.15);border-color:rgba(239,159,39,0.3);color:var(--amber)"><i class="ti ti-brain"></i></div><div><div class="feature-name">AI Nutritionist</div><div class="feature-desc">Get your personal health score</div></div></div>
+      </div>
+    </div>
+    <div class="auth-right">
+      <div class="card">
+        <div class="brand"><div class="brand-icon">🔥</div><div class="brand-name">Fit<span>Pulse</span></div></div>
+        <p class="form-title">Create your account</p>
+        <p class="form-sub">Free forever. No credit card needed.</p>
+        <div class="field"><label for="signupName">Full name</label><div class="field-wrap"><i class="ti ti-user"></i><input type="text" id="signupName" placeholder="Your name"/></div><div class="error-msg" id="nameErr">Name is required.</div></div>
+        <div class="field"><label for="signupEmail">Email address</label><div class="field-wrap"><i class="ti ti-mail"></i><input type="email" id="signupEmail" placeholder="you@example.com"/></div><div class="error-msg" id="signupEmailErr">Enter a valid email.</div></div>
+        <div class="field"><label for="signupPass">Password</label><div class="field-wrap"><i class="ti ti-lock"></i><input type="password" id="signupPass" placeholder="At least 6 characters"/><button class="toggle-pass" onclick="togglePass('signupPass',this)"><i class="ti ti-eye"></i></button></div><div class="error-msg" id="signupPassErr">Password must be at least 6 characters.</div></div>
+        <button class="btn-primary" onclick="doSignup()"><i class="ti ti-rocket"></i> Create Free Account</button>
+        <div class="divider">or</div>
+        <div class="link-row">Already have an account? <a href="#" onclick="showPage('loginPage');return false;">Sign in</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRACKER PAGE -->
+<div class="page hidden" id="trackerPage">
+  <div class="tracker-wrap">
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="top-bar-brand">
+        <div class="mini-icon">🔥</div>
+        <span class="top-bar-title">FitPulse</span>
+        <span class="top-bar-tagline">Your Daily Fitness Hub</span>
+      </div>
+      <div class="top-bar-right">
+        <div class="user-badge"><i class="ti ti-user-circle"></i><span id="userNameDisplay">User</span></div>
+        <button class="logout-btn" onclick="doLogout()"><i class="ti ti-logout"></i> <span>Logout</span></button>
+      </div>
+    </div>
+
+    <!-- MOTIVATIONAL BANNER -->
+    <div class="motivation-banner" id="motivationBanner">
+      <span class="motivation-emoji" id="motivEmoji">💪</span>
+      <span id="motivText">Stay consistent — every rep counts!</span>
+      <button class="motivation-refresh" onclick="refreshMotivation()"><i class="ti ti-refresh"></i></button>
+    </div>
+
+    <!-- STATS GRID -->
+    <div class="stats-grid">
+      <div class="stat-card consumed"><div class="stat-icon"><i class="ti ti-flame"></i></div><div class="stat-label">Consumed</div><div class="stat-value" id="totalCalories">0 <span class="stat-unit">kcal</span></div><div class="stat-bar-mini"><div class="stat-bar-fill-mini" id="consumedBarMini"></div></div></div>
+      <div class="stat-card burned"><div class="stat-icon"><i class="ti ti-run"></i></div><div class="stat-label">Burned</div><div class="stat-value" id="totalBurned">0 <span class="stat-unit">kcal</span></div></div>
+      <div class="stat-card remaining"><div class="stat-icon"><i class="ti ti-target"></i></div><div class="stat-label">Net Remaining</div><div class="stat-value" id="remaining">2000 <span class="stat-unit">kcal</span></div></div>
+      <div class="stat-card active"><div class="stat-icon"><i class="ti ti-clock"></i></div><div class="stat-label">Active Time</div><div class="stat-value" id="activeTime">0 <span class="stat-unit">mins</span></div></div>
+    </div>
+
+    <!-- NAV TABS -->
+    <div class="nav-tabs-wrapper">
+      <div class="tracker-tabs" id="trackerTabs">
+        <button class="tab-btn active" id="nutritionTabBtn" onclick="switchTrackerTab('nutrition')"><i class="ti ti-apple"></i><span>Nutrition</span></button>
+        <button class="tab-btn" id="workoutTabBtn" onclick="switchTrackerTab('workout')"><i class="ti ti-barbell"></i><span>Workout</span></button>
+        <button class="tab-btn" id="dietTabBtn" onclick="switchTrackerTab('diet')"><i class="ti ti-salad"></i><span>Diet Plan</span></button>
+        <button class="tab-btn" id="exerciseTabBtn" onclick="switchTrackerTab('exercise')"><i class="ti ti-stretching"></i><span>Exercises</span></button>
+        <button class="tab-btn" id="equipTabBtn" onclick="switchTrackerTab('equip')"><i class="ti ti-tools"></i><span>Equipment</span></button>
+        <button class="tab-btn ai-tab" id="nutriAITabBtn" onclick="switchTrackerTab('nutriAI')"><i class="ti ti-brain"></i><span>AI Score</span></button>
+        <button class="tab-btn" id="ancestralTabBtn" onclick="switchTrackerTab('ancestral')"><i class="ti ti-world"></i><span>Origins</span></button>
+      </div>
+    </div>
+
+    <!-- ══════════ NUTRITION TAB ══════════ -->
+    <div class="tab-content active" id="nutritionTabContent">
+      <div class="section">
+        <div class="section-hd"><span class="section-lbl"><i class="ti ti-chart-bar"></i> Daily Progress</span><span class="section-val" id="goalProgress">0%</span></div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"><div class="progress-glow"></div></div></div>
+        <div class="feedback-box" id="feedbackBox"><i class="ti ti-leaf" id="feedbackIcon"></i><span id="feedbackText">Log your first meal to get started.</span></div>
+      </div>
+
+      <div class="section quick-add-section">
+        <div class="section-hd"><span class="section-lbl"><i class="ti ti-plus"></i> Quick Add Food</span></div>
+        <div class="quick-presets">
+          <button class="preset-btn" onclick="quickAdd(320)">🥣 Breakfast<br/><span>~320</span></button>
+          <button class="preset-btn" onclick="quickAdd(480)">🥗 Lunch<br/><span>~480</span></button>
+          <button class="preset-btn" onclick="quickAdd(150)">🍎 Snack<br/><span>~150</span></button>
+          <button class="preset-btn" onclick="quickAdd(550)">🍗 Dinner<br/><span>~550</span></button>
+        </div>
+        <div class="input-row" style="margin-top:12px;">
+          <input class="cal-input" type="number" id="calorieInput" placeholder="Or enter custom calories (e.g. 350)" min="1"/>
+          <button class="add-btn" onclick="addCalories()"><i class="ti ti-plus"></i> Add</button>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-hd"><span class="section-lbl"><i class="ti ti-list"></i> Food Entry Log</span><span class="log-count-badge" id="logCountBadge">0 entries</span></div>
+        <div class="log-list" id="logList"><div class="empty-log"><i class="ti ti-inbox" style="font-size:24px;display:block;margin-bottom:6px;"></i>No entries yet</div></div>
+      </div>
+    </div>
+
+    <!-- ══════════ WORKOUT TAB ══════════ -->
+    <div class="tab-content" id="workoutTabContent">
+      <div class="section workout-hero-section">
+        <div class="workout-hero-content">
+          <div>
+            <div class="workout-hero-title">💪 Ready to Sweat?</div>
+            <div class="workout-hero-sub">Choose a routine and start your live session with timer guidance and audio cues.</div>
+          </div>
+          <div class="workout-hero-stats">
+            <div class="wh-stat"><span id="wh-burned">0</span><span>kcal</span></div>
+            <div class="wh-stat"><span id="wh-time">0</span><span>mins</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-hd" style="margin-bottom:14px;"><span class="section-lbl"><i class="ti ti-bolt"></i> Preset Routines</span><span style="font-size:11px;color:var(--text-dim);">Tap to start live session</span></div>
+        <div class="workout-deck">
+          <div class="workout-card hiit-card"><div class="wcard-accent"></div><div class="workout-card-hd"><span class="workout-title"><i class="ti ti-bolt"></i> HIIT Cardio Blast</span><div class="workout-meta"><span>⏱ 4 mins</span><span class="kcal-badge">🔥 240 kcal</span></div></div><p class="workout-desc">High intensity intervals designed to burn fat and boost cardiovascular health fast.</p><div class="workout-tags"><span>Jumping Jacks</span><span>Burpees</span><span>High Knees</span><span>Mountain Climbers</span></div><button class="start-workout-btn" onclick="startWorkoutSession('hiit')"><i class="ti ti-player-play"></i> Start Live Session</button></div>
+          <div class="workout-card core-card"><div class="wcard-accent" style="background:var(--amber)"></div><div class="workout-card-hd"><span class="workout-title"><i class="ti ti-shield"></i> Core Strength Builder</span><div class="workout-meta"><span>⏱ 4 mins</span><span class="kcal-badge" style="background:rgba(239,159,39,0.15);color:var(--amber);">🔥 120 kcal</span></div></div><p class="workout-desc">Target your abdominal and stabilizing muscles to build a rock-solid midsection.</p><div class="workout-tags"><span>Plank</span><span>Bicycle Crunches</span><span>Russian Twists</span><span>Leg Raises</span></div><button class="start-workout-btn amber-btn" onclick="startWorkoutSession('core')"><i class="ti ti-player-play"></i> Start Live Session</button></div>
+          <div class="workout-card upper-card"><div class="wcard-accent" style="background:var(--blue)"></div><div class="workout-card-hd"><span class="workout-title"><i class="ti ti-crown"></i> Upper Body Tone</span><div class="workout-meta"><span>⏱ 5 mins</span><span class="kcal-badge" style="background:rgba(55,138,221,0.15);color:var(--blue);">🔥 180 kcal</span></div></div><p class="workout-desc">Strengthen your shoulders, chest, and arms with focused bodyweight movements.</p><div class="workout-tags"><span>Push-ups</span><span>Pike Push-ups</span><span>Bench Dips</span><span>Shoulder Taps</span></div><button class="start-workout-btn blue-btn" onclick="startWorkoutSession('upper')"><i class="ti ti-player-play"></i> Start Live Session</button></div>
+          <div class="workout-card lower-card"><div class="wcard-accent"></div><div class="workout-card-hd"><span class="workout-title"><i class="ti ti-legs"></i> Lower Body Sculpt</span><div class="workout-meta"><span>⏱ 4 mins</span><span class="kcal-badge">🔥 200 kcal</span></div></div><p class="workout-desc">High-rep lower body workouts for powerful quads, glutes, and calves.</p><div class="workout-tags"><span>Squats</span><span>Lunges</span><span>Glute Bridges</span><span>Calf Raises</span></div><button class="start-workout-btn" onclick="startWorkoutSession('lower')"><i class="ti ti-player-play"></i> Start Live Session</button></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-hd" style="margin-bottom:12px;"><span class="section-lbl"><i class="ti ti-pencil"></i> Log Custom Workout</span></div>
+        <div class="field" style="margin-bottom:8px;"><input class="cal-input" type="text" id="customWorkoutName" placeholder="Exercise name (e.g. Running, Swimming)"/></div>
+        <div class="input-row"><input class="cal-input" type="number" id="customWorkoutMin" placeholder="Duration (min)" min="1"/><input class="cal-input" type="number" id="customWorkoutKcal" placeholder="Calories burned" min="1"/><button class="add-btn" onclick="addCustomWorkout()"><i class="ti ti-plus"></i> Log</button></div>
+      </div>
+
+      <div class="section">
+        <div class="section-hd"><span class="section-lbl"><i class="ti ti-notebook"></i> Completed Exercises</span></div>
+        <div class="log-list" id="workoutsLogList"><div class="empty-log"><i class="ti ti-barbell" style="font-size:24px;display:block;margin-bottom:6px;"></i>No exercises logged today</div></div>
+      </div>
+    </div>
+
+    <!-- ══════════ DIET PLAN TAB ══════════ -->
+    <div class="tab-content" id="dietTabContent">
+      <div class="section diet-goal-section">
+        <div class="section-hd" style="margin-bottom:14px;"><span class="section-lbl"><i class="ti ti-target"></i> Your Goal</span><span class="diet-science-badge"><i class="ti ti-flask"></i> Science-backed</span></div>
+        <div class="diet-goal-pills">
+          <button class="goal-pill active" data-goal="lose" onclick="selectDietGoal('lose',this)">🔥 Lose Fat</button>
+          <button class="goal-pill" data-goal="maintain" onclick="selectDietGoal('maintain',this)">⚖️ Maintain</button>
+          <button class="goal-pill" data-goal="gain" onclick="selectDietGoal('gain',this)">💪 Build Muscle</button>
+        </div>
+        <div class="diet-goal-desc" id="dietGoalDesc">
+          <i class="ti ti-info-circle" style="color:var(--accent);"></i>
+          <span id="dietGoalDescText">A 300–500 kcal/day deficit leads to ~0.5 kg fat loss per week without muscle loss.</span>
+        </div>
+        <div class="diet-ref-chip"><i class="ti ti-book"></i> Ref: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5786199/" target="_blank">Hall et al., 2018 — NIH</a></div>
+      </div>
+      <div class="section">
+        <div class="section-hd" style="margin-bottom:14px;"><span class="section-lbl"><i class="ti ti-chart-pie"></i> Daily Macro Split</span><span class="section-val" id="dietMacroLabel">Fat Loss</span></div>
+        <div class="macro-bars" id="macroBars">
+          <div class="macro-row"><div class="macro-info"><span class="macro-dot" style="background:#1d9e75;"></span><span class="macro-name">Protein</span><span class="macro-val" id="macroProtein">150g</span></div><div class="bar-bg" style="flex:1;"><div class="bar-fill macro-fill" id="macroProteinBar" style="width:40%;background:#1d9e75;"></div></div><span class="macro-pct" id="macroProteinPct">40%</span></div>
+          <div class="macro-row"><div class="macro-info"><span class="macro-dot" style="background:#378add;"></span><span class="macro-name">Carbs</span><span class="macro-val" id="macroCarbs">175g</span></div><div class="bar-bg" style="flex:1;"><div class="bar-fill macro-fill" id="macroCarbsBar" style="width:35%;background:#378add;"></div></div><span class="macro-pct" id="macroCarbsPct">35%</span></div>
+          <div class="macro-row"><div class="macro-info"><span class="macro-dot" style="background:#ef9f27;"></span><span class="macro-name">Fats</span><span class="macro-val" id="macroFats">55g</span></div><div class="bar-bg" style="flex:1;"><div class="bar-fill macro-fill" id="macroFatsBar" style="width:25%;background:#ef9f27;"></div></div><span class="macro-pct" id="macroFatsPct">25%</span></div>
+        </div>
+        <div class="diet-ref-chip"><i class="ti ti-book"></i> Ref: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6566799/" target="_blank">Morton et al., 2018 — NIH</a></div>
+      </div>
+      <div class="section">
+        <div class="section-hd" style="margin-bottom:14px;"><span class="section-lbl"><i class="ti ti-clock"></i> Daily Meal Schedule</span><span style="font-size:11px;color:var(--text-dim);" id="dietMealSubLabel">~1500 kcal target</span></div>
+        <div class="meal-timeline" id="mealTimeline"></div>
+      </div>
+      <div class="diet-two-col">
+        <div class="section diet-foods-section eat"><div class="diet-foods-hd"><i class="ti ti-circle-check" style="color:var(--accent);"></i> Eat More</div><ul class="diet-foods-list" id="dietEatList"></ul></div>
+        <div class="section diet-foods-section avoid"><div class="diet-foods-hd"><i class="ti ti-circle-x" style="color:var(--red);"></i> Limit</div><ul class="diet-foods-list" id="dietAvoidList"></ul></div>
+      </div>
+      <div class="section diet-fact-section">
+        <div class="section-hd" style="margin-bottom:12px;"><span class="section-lbl"><i class="ti ti-bulb"></i> Did You Know?</span><button class="fact-shuffle-btn" onclick="shuffleFact()"><i class="ti ti-refresh"></i> New Fact</button></div>
+        <div class="diet-fact-card" id="dietFactCard"><div class="diet-fact-emoji" id="dietFactEmoji">🧠</div><p class="diet-fact-text" id="dietFactText">Loading...</p><div class="diet-ref-chip" id="dietFactRef" style="margin-top:10px;"></div></div>
+      </div>
+      <div class="section diet-hydration-section">
+        <div class="section-hd" style="margin-bottom:12px;"><span class="section-lbl"><i class="ti ti-droplet"></i> Hydration Tracker</span><span class="section-val" id="waterCount">0 / 8 glasses</span></div>
+        <div class="water-glasses" id="waterGlasses"></div>
+        <p class="water-tip">💡 Drinking water before meals reduces calorie intake by up to 13%. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4901052/" target="_blank" class="diet-link">Dennis et al., 2010</a></p>
+      </div>
+    </div>
+
+    <!-- ══════════ EXERCISE LIBRARY TAB ══════════ -->
+    <div class="tab-content" id="exerciseTabContent">
+      <div class="section exercise-hero">
+        <div class="exercise-hero-inner">
+          <div class="exercise-hero-icon">🏋️</div>
+          <div>
+            <div class="exercise-hero-title">Exercise Library</div>
+            <div class="exercise-hero-sub">Tap any exercise to see benefits, step-by-step instructions, muscles worked & pro tips.</div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-hd" style="margin-bottom:14px;"><span class="section-lbl"><i class="ti ti-filter"></i> Filter by Type</span><span class="ex-filter-count" id="exFilterCount">12 exercises</span></div>
+        <div class="ex-filter-row">
+          <button class="ex-filter-btn active" onclick="filterExercises('all',this)">🌟 All</button>
+          <button class="ex-filter-btn" onclick="filterExercises('strength',this)">💪 Strength</button>
+          <button class="ex-filter-btn" onclick="filterExercises('cardio',this)">🏃 Cardio</button>
+          <button class="ex-filter-btn" onclick="filterExercises('core',this)">🎯 Core</button>
+          <button class="ex-filter-btn" onclick="filterExercises('flexibility',this)">🧘 Flexibility</button>
+        </div>
+      </div>
+      <div id="exerciseGrid" class="exercise-grid"></div>
+      <!-- EXERCISE MODAL -->
+      <div class="ex-modal-overlay" id="exModalOverlay" onclick="closeExModal(event)">
+        <div class="ex-modal" id="exModal">
+          <button class="ex-modal-close" onclick="closeExModalBtn()"><i class="ti ti-x"></i></button>
+          <div class="ex-modal-header">
+            <div class="ex-modal-emoji" id="exModalEmoji">🏋️</div>
+            <div>
+              <h2 class="ex-modal-title" id="exModalTitle">Exercise Name</h2>
+              <div class="ex-modal-tags" id="exModalTags"></div>
+            </div>
+          </div>
+          <div class="ex-modal-body">
+            <div class="ex-modal-section benefits-section"><div class="ex-modal-section-title"><i class="ti ti-star"></i> Benefits</div><p class="ex-modal-text" id="exModalBenefits"></p></div>
+            <div class="ex-modal-section"><div class="ex-modal-section-title"><i class="ti ti-list-check"></i> How To Do It</div><ol class="ex-steps-list" id="exModalSteps"></ol></div>
+            <div class="ex-modal-section"><div class="ex-modal-section-title"><i class="ti ti-target"></i> Muscles Worked</div><div class="ex-muscles-row" id="exModalMuscles"></div></div>
+            <div class="ex-modal-section ex-modal-tip"><div class="ex-modal-section-title"><i class="ti ti-bulb"></i> Pro Tip</div><p class="ex-modal-text" id="exModalTip"></p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ EQUIPMENT GUIDE TAB ══════════ -->
+    <div class="tab-content" id="equipTabContent">
+      <div class="section">
+        <div class="section-hd" style="margin-bottom:4px;"><span class="section-lbl"><i class="ti ti-tools"></i> Equipment Guide</span><span class="diet-science-badge"><i class="ti ti-check"></i> 12 Items</span></div>
+        <p style="font-size:12px;color:var(--text-dim);margin-bottom:14px;">Tap any card to see how to use it safely and effectively.</p>
+        <div class="equip-grid" id="equipGrid"></div>
+      </div>
+      <div class="ex-modal-overlay" id="equipModalOverlay" onclick="closeEquipModal(event)">
+        <div class="ex-modal" id="equipModal">
+          <button class="ex-modal-close" onclick="closeEquipModalBtn()"><i class="ti ti-x"></i></button>
+          <div class="ex-modal-header"><div class="ex-modal-emoji" id="equipModalEmoji">🏋️</div><div><h2 class="ex-modal-title" id="equipModalTitle">Equipment</h2><span class="ex-cat-tag" id="equipModalCat"></span></div></div>
+          <div class="ex-modal-body">
+            <div class="ex-modal-section"><div class="ex-modal-section-title"><i class="ti ti-info-circle"></i> What It Is</div><p class="ex-modal-text" id="equipModalDesc"></p></div>
+            <div class="ex-modal-section"><div class="ex-modal-section-title"><i class="ti ti-player-play"></i> How To Use It</div><ol class="ex-steps-list" id="equipModalSteps"></ol></div>
+            <div class="ex-modal-section"><div class="ex-modal-section-title"><i class="ti ti-dumbbell"></i> Best Exercises</div><div class="equip-exercises-row" id="equipModalExercises"></div></div>
+            <div class="ex-modal-section ex-modal-tip"><div class="ex-modal-section-title"><i class="ti ti-alert-triangle"></i> Safety Tips</div><p class="ex-modal-text" id="equipModalSafety"></p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ AI NUTRITIONIST TAB ══════════ -->
+    <div class="tab-content" id="nutriAITabContent">
+      <div class="section ai-hero-section">
+        <div class="ai-hero-inner">
+          <div class="ai-hero-icon"><i class="ti ti-brain"></i></div>
+          <div>
+            <div class="ai-hero-title">🤖 AI Nutritionist</div>
+            <div class="ai-hero-sub">Get your personal health score and tailored recommendations in seconds.</div>
+          </div>
+        </div>
+      </div>
+      <div class="section" id="nutriFormSection">
+        <div class="section-hd" style="margin-bottom:14px;"><span class="section-lbl"><i class="ti ti-forms"></i> Your Health Profile</span></div>
+        <div class="nutri-form-grid">
+          <div class="nutri-field"><label class="nutri-label">Age</label><input class="nutri-input" type="number" id="nutriAge" placeholder="e.g. 25" min="10" max="100"/></div>
+          <div class="nutri-field"><label class="nutri-label">Gender</label><select class="nutri-input" id="nutriGender"><option value="">Select</option><option value="male">Male</option><option value="female">Female</option><option value="other">Other</option></select></div>
+          <div class="nutri-field"><label class="nutri-label">Weight (kg)</label><input class="nutri-input" type="number" id="nutriWeight" placeholder="e.g. 70" min="30" max="300"/></div>
+          <div class="nutri-field"><label class="nutri-label">Height (cm)</label><input class="nutri-input" type="number" id="nutriHeight" placeholder="e.g. 170" min="100" max="250"/></div>
+          <div class="nutri-field"><label class="nutri-label">Activity Level</label><select class="nutri-input" id="nutriActivity"><option value="">Select</option><option value="sedentary">Sedentary (desk job)</option><option value="light">Light (1-3x/week)</option><option value="moderate">Moderate (3-5x/week)</option><option value="active">Very Active (6-7x/week)</option><option value="athlete">Athlete (2x/day)</option></select></div>
+          <div class="nutri-field"><label class="nutri-label">Goal</label><select class="nutri-input" id="nutriGoal"><option value="">Select</option><option value="lose">Lose Fat</option><option value="maintain">Maintain Weight</option><option value="gain">Build Muscle</option><option value="endurance">Improve Endurance</option></select></div>
+          <div class="nutri-field"><label class="nutri-label">Sleep (hrs/night)</label><input class="nutri-input" type="number" id="nutriSleep" placeholder="e.g. 7" min="2" max="14"/></div>
+          <div class="nutri-field"><label class="nutri-label">Water (glasses/day)</label><input class="nutri-input" type="number" id="nutriWater" placeholder="e.g. 8" min="1" max="20"/></div>
+        </div>
+        <div class="nutri-field" style="margin-top:10px;"><label class="nutri-label">Conditions / Notes (optional)</label><input class="nutri-input" type="text" id="nutriNotes" placeholder="e.g. diabetes, vegetarian, knee pain..."/></div>
+        <button class="btn-primary" style="margin-top:14px;" onclick="analyzeNutrition()"><i class="ti ti-sparkles"></i> Analyze My Health</button>
+      </div>
+      <div class="section" id="nutriResultsSection" style="display:none;">
+        <div class="section-hd" style="margin-bottom:16px;"><span class="section-lbl"><i class="ti ti-chart-radar"></i> Your Health Score</span><button class="fact-shuffle-btn" onclick="resetNutriForm()"><i class="ti ti-refresh"></i> Redo</button></div>
+        <div class="nutri-score-area"><div class="nutri-score-ring"><svg viewBox="0 0 120 120" class="nutri-ring-svg"><circle cx="60" cy="60" r="52" class="nutri-ring-track"/><circle cx="60" cy="60" r="52" class="nutri-ring-fill" id="nutriRingFill"/></svg><div class="nutri-score-text"><div class="nutri-score-num" id="nutriScoreNum">0</div><div class="nutri-score-lbl">/ 100</div></div></div><div class="nutri-score-grade" id="nutriScoreGrade">—</div></div>
+        <div class="nutri-breakdown" id="nutriBreakdown"></div>
+        <div class="nutri-recs-title"><i class="ti ti-clipboard-list"></i> Personalized Recommendations</div>
+        <div id="nutriRecs" class="nutri-recs-list"></div>
+        <div class="nutri-stats-row" id="nutriStatsRow"></div>
+      </div>
+    </div>
+
+    <!-- ══════════ ANCESTRAL ORIGINS TAB ══════════ -->
+    <div class="tab-content" id="ancestralTabContent">
+      <div class="section" style="background:linear-gradient(135deg,var(--card),rgba(55,138,221,0.08));border-color:rgba(55,138,221,0.3);">
+        <div class="anc-hero">
+          <div class="anc-hero-icon">🌍</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;color:var(--text);">Exercise Origins</div>
+            <div style="font-size:12px;color:var(--text-muted);line-height:1.5;margin-top:2px;">Discover how our ancestors gave us the gift of movement. Every exercise has a story rooted in survival, culture, and human ingenuity.</div>
+          </div>
+        </div>
+      </div>
+      <div class="anc-filter-row">
+        <button class="anc-filter-btn active" onclick="filterAncestral('all',this)">🌍 All</button>
+        <button class="anc-filter-btn" onclick="filterAncestral('asia',this)">🏯 Asia</button>
+        <button class="anc-filter-btn" onclick="filterAncestral('europe',this)">🏛️ Europe</button>
+        <button class="anc-filter-btn" onclick="filterAncestral('africa',this)">🌿 Africa</button>
+        <button class="anc-filter-btn" onclick="filterAncestral('americas',this)">🦅 Americas</button>
+      </div>
+      <div id="ancestralCards"></div>
+      <div class="section anc-quote-section">
+        <div class="section-hd" style="margin-bottom:10px;"><span class="section-lbl"><i class="ti ti-quote"></i> Wisdom From Our Ancestors</span><button class="fact-shuffle-btn" onclick="nextAncestralQuote()"><i class="ti ti-refresh"></i> Next</button></div>
+        <div class="anc-quote-card" id="ancQuoteCard">
+          <div class="anc-quote-text" id="ancQuoteText">"A healthy outside starts from the inside."</div>
+          <div class="anc-quote-source" id="ancQuoteSource">— Robert Urich</div>
+        </div>
+      </div>
+    </div>
+
+    <button class="reset-btn" onclick="resetAll()"><i class="ti ti-refresh"></i> Reset Day</button>
+  </div>
+</div>
+
+<!-- LIVE WORKOUT SESSION OVERLAY -->
+<div class="workout-session-overlay" id="workoutSessionPage">
+  <div class="session-card">
+    <div class="complete-screen" id="workoutCompleteScreen">
+      <div class="complete-icon"><i class="ti ti-trophy"></i></div>
+      <h2 class="complete-title">Outstanding Effort! 🎉</h2>
+      <p class="complete-sub" id="completeSubtext">You successfully finished the workout plan.</p>
+      <div class="complete-stats">
+        <div class="complete-stat-item"><div class="complete-stat-val" id="completeBurned">0 kcal</div><div class="complete-stat-lbl">Calories Burned</div></div>
+        <div class="complete-stat-item" style="border-left:1px solid var(--border);padding-left:20px;"><div class="complete-stat-val" id="completeDuration">0 mins</div><div class="complete-stat-lbl">Active Time</div></div>
+      </div>
+      <button class="session-btn primary" onclick="exitWorkoutSession(true)" style="width:100%;justify-content:center;"><i class="ti ti-dashboard"></i> Back to Dashboard</button>
+    </div>
+    <div class="session-progress" id="sessionStepIndicator">Exercise 1 of 4</div>
+    <h2 class="session-title" id="sessionRoutineName">HIIT Cardio Blast</h2>
+    <div class="session-exercise" id="sessionExerciseName">Jumping Jacks</div>
+    <div class="session-instruction" id="sessionExerciseInstruct">Keep a steady pace, land softly on your toes!</div>
+    <div class="timer-container">
+      <svg class="timer-svg" viewBox="0 0 180 180">
+        <circle class="timer-track" cx="90" cy="90" r="80"></circle>
+        <circle class="timer-fill" id="timerRing" cx="90" cy="90" r="80"></circle>
+      </svg>
+      <div class="timer-text" id="timerText">30<span class="timer-unit" id="timerStateLabel">WORK</span></div>
+    </div>
+    <div class="next-guide" id="nextGuideContainer">
+      <span class="next-guide-lbl">Next Up</span>
+      <span class="next-guide-val" id="nextGuideName">Mountain Climbers (30s)</span>
+    </div>
+    <div class="session-controls">
+      <button class="session-btn danger" onclick="exitWorkoutSession(false)"><i class="ti ti-circle-x"></i> Quit</button>
+      <button class="session-btn" id="sessionPauseBtn" onclick="togglePauseWorkout()"><i class="ti ti-player-pause" id="sessionPauseIcon"></i> <span id="sessionPauseText">Pause</span></button>
+      <button class="session-btn primary" onclick="skipWorkoutStep()"><i class="ti ti-player-skip-forward"></i> Skip</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
